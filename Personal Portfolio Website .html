@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhavani Prasad | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b16;
+    color: white;
+}
+
+header {
+    background: #151526;
+    padding: 18px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 27px;
+    color: white;
+}
+
+.logo span, .highlight {
+    color: #a78bfa;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+}
+
+nav ul a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul a:hover {
+    color: #5eead4;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+section {
+    padding: 75px 7%;
+    text-align: center;
+}
+
+.hero {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 35px;
+    background: radial-gradient(circle at top right, #30234d, #0b0b16 65%);
+}
+
+.hero-content {
+    max-width: 580px;
+    text-align: left;
+    animation: slideIn 1s ease;
+}
+
+.hero-content h1 {
+    font-size: clamp(32px, 5vw, 50px);
+    margin: 18px 0;
+}
+
+.hero-content h2 {
+    margin-bottom: 18px;
+}
+
+.hero-content p {
+    color: #c5c5d4;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.tagline {
+    color: #5eead4 !important;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.btn {
+    display: inline-block;
+    background: #a78bfa;
+    color: #111;
+    padding: 12px 20px;
+    border-radius: 7px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #a78bfa55;
+}
+
+.secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid #a78bfa;
+}
+
+.profile {
+    background: #19192a;
+    border: 1px solid #34344c;
+    border-radius: 20px;
+    padding: 35px 25px;
+    width: min(320px, 100%);
+    animation: float 4s infinite ease-in-out;
+}
+
+.avatar {
+    width: 125px;
+    height: 125px;
+    background: linear-gradient(135deg, #a78bfa, #5eead4);
+    color: #111;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 35px;
+    margin: 0 auto 22px;
+}
+
+.profile p {
+    color: #c5c5d4;
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+.heading {
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.description {
+    max-width: 750px;
+    margin: auto;
+    color: #c5c5d4;
+    line-height: 1.9;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #171725;
+    border: 1px solid #303047;
+    border-radius: 12px;
+    padding: 27px 22px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #a78bfa;
+}
+
+.card h3 {
+    color: #b9a5ff;
+    margin-bottom: 14px;
+}
+
+.card p {
+    color: #c5c5d4;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.skills {
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+}
+
+.skill {
+    margin-bottom: 24px;
+}
+
+.skill p {
+    margin-bottom: 8px;
+}
+
+.bar {
+    height: 9px;
+    background: #29293c;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #a78bfa, #5eead4);
+    animation: grow 1.5s ease;
+}
+
+.achievement {
+    max-width: 650px;
+    margin: auto;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 14px;
+    background: #171725;
+    border: 1px solid #34344c;
+    border-radius: 7px;
+    color: white;
+    font: inherit;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    outline: 1px solid #a78bfa;
+}
+
+.contact-info {
+    color: #c5c5d4;
+    margin-top: 20px;
+}
+
+footer {
+    background: #151526;
+    text-align: center;
+    padding: 25px;
+    color: #c5c5d4;
+}
+
+footer a {
+    color: #a78bfa;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes grow {
+    from { width: 0; }
+}
+
+@media (max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #151526;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+}
+
+@media print {
+    header, .btn, form, footer a {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    section {
+        padding: 25px;
+        break-inside: avoid;
+    }
+
+    .card, .profile {
+        background: white;
+        color: black;
+        border: 1px solid #aaa;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <h2 class="logo">Bhavani<span>.</span></h2>
+
+    <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="tagline">WELCOME TO MY PORTFOLIO</p>
+
+        <h1>Hi, I'm <span class="highlight">Bhavani Prasad</span></h1>
+
+        <h2>I'm a <span class="highlight" id="role">Software Developer</span></h2>
+
+        <p>
+            First-year B.Tech CSE (AI & ML) student passionate
+            about programming, web development and technology.
+            My goal is to become a skilled software developer.
+        </p>
+
+        <a href="#projects" class="btn">Explore My Projects</a>
+        <a href="#contact" class="btn secondary">Contact Me</a>
+    </div>
+
+    <div class="profile">
+        <div class="avatar">BP</div>
+        <h2>Bhavani Prasad</h2>
+        <p>CSE | Artificial Intelligence & Machine Learning</p>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="heading">About <span class="highlight">Me</span></h2>
+
+    <p class="description">
+        I am a first-year B.Tech student specializing in
+        Computer Science and Engineering with Artificial
+        Intelligence and Machine Learning. I enjoy learning
+        Python, building websites, exploring AI, and solving
+        programming problems. I believe in continuous learning
+        and improving my technical skills every day.
+    </p>
+</section>
+
+<section id="education">
+    <h2 class="heading">Educational <span class="highlight">Qualifications</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>B.Tech CSE (AI & ML)</h3>
+            <p>NRI College / DRVR NRI University</p>
+            <p>2026 - Present</p>
+            <p>Currently studying first year.</p>
+        </div>
+
+        <div class="card">
+            <h3>Intermediate</h3>
+            <p>Vikas Junior College</p>
+            <p>Completed</p>
+        </div>
+
+        <div class="card">
+            <h3>10th Class</h3>
+            <p>Vikas Techno School</p>
+            <p>Completed</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="heading">Technical <span class="highlight">Skills</span></h2>
+
+    <div class="skills">
+        <div class="skill">
+            <p>Python</p>
+            <div class="bar"><span style="width:60%"></span></div>
+        </div>
+
+        <div class="skill">
+            <p>HTML</p>
+            <div class="bar"><span style="width:75%"></span></div>
+        </div>
+
+        <div class="skill">
+            <p>CSS</p>
+            <div class="bar"><span style="width:50%"></span></div>
+        </div>
+
+        <div class="skill">
+            <p>JavaScript</p>
+            <div class="bar"><span style="width:30%"></span></div>
+        </div>
+
+        <div class="skill">
+            <p>Artificial Intelligence & Machine Learning</p>
+            <div class="bar"><span style="width:35%"></span></div>
+        </div>
+    </div>
+</section>
+
+<section id="hobbies">
+    <h2 class="heading">My <span class="highlight">Hobbies</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🎵 Listening to Music</h3>
+            <p>Music keeps me relaxed and motivated.</p>
+        </div>
+
+        <div class="card">
+            <h3>🏏 Watching Cricket</h3>
+            <p>I enjoy watching cricket matches.</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Exploring Technology</h3>
+            <p>I enjoy learning about new technologies.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="heading">My <span class="highlight">Projects</span></h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Student Result Calculator</h3>
+            <p>
+                A Python program that calculates total marks,
+                average marks and pass/fail status.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>College Event Website</h3>
+            <p>
+                A responsive website created using HTML and CSS
+                to display college event information.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Personal Portfolio</h3>
+            <p>
+                A personal website displaying my profile,
+                education, skills and projects.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="achievements">
+    <h2 class="heading">My <span class="highlight">Achievements</span></h2>
+
+    <div class="card achievement">
+        <h3>Programming Practice</h3>
+        <p>Learning Python and improving problem-solving skills.</p>
+
+        <h3>Web Development</h3>
+        <p>Creating my personal portfolio website.</p>
+
+        <h3>Future Goal</h3>
+        <p>Working towards becoming a software developer.</p>
+    </div>
+</section>
+
+<section id="resume">
+    <h2 class="heading">My <span class="highlight">Resume</span></h2>
+
+    <p class="description">
+        Use the button below to print this portfolio or
+        save a copy as a PDF.
+    </p>
+
+    <button class="btn" onclick="window.print()">
+        Print / Save Resume
+    </button>
+</section>
+
+<section id="contact">
+    <h2 class="heading">Contact <span class="highlight">Me</span></h2>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="btn">Prepare Email</button>
+    </form>
+
+    <p class="contact-info">Email: your.email@example.com</p>
+    <p class="contact-info">Location: Andhra Pradesh, India</p>
+</section>
+
+<footer>
+    <p>© <span id="year"></span> Bhavani Prasad | Personal Portfolio</p>
+    <a href="#home">Back to Top ↑</a>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+document.querySelectorAll("#navLinks a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        document.getElementById("navLinks").classList.remove("show");
+    });
+});
+
+const roles = [
+    "Software Developer",
+    "Web Developer",
+    "AI/ML Learner"
+];
+
+let roleIndex = 0;
+
+setInterval(function() {
+    roleIndex = (roleIndex + 1) % roles.length;
+    document.getElementById("role").textContent = roles[roleIndex];
+}, 2500);
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+document.getElementById("contactForm").addEventListener(
+    "submit",
+    function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const subject = encodeURIComponent(
+            "Portfolio message from " + name
+        );
+
+        const body = encodeURIComponent(
+            "Name: " + name +
+            "\nEmail: " + email +
+            "\n\nMessage:\n" + message
+        );
+
+        window.location.href =
+            "mailto:your.email@example.com" +
+            "?subject=" + subject +
+            "&body=" + body;
+    }
+);
+</script>
+
+</body>
+</html>
+
