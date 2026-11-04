@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRI College | Official Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: #092b55;
+            color: white;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffca28;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffca28;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            background: none;
+            color: white;
+            border: none;
+        }
+
+        /* Banner */
+        .banner {
+            min-height: 450px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            color: white;
+            background:
+                linear-gradient(120deg,
+                rgba(4, 30, 65, 0.94),
+                rgba(15, 92, 145, 0.78)),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner-content {
+            max-width: 650px;
+            animation: slideIn 1s ease;
+        }
+
+        .banner h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffca28;
+            color: #092b55;
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* General Sections */
+        section {
+            padding: 60px 7%;
+            scroll-margin-top: 70px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #092b55;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        /* Information Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border-bottom: 4px solid #0b5ca8;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
+        }
+
+        .card .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #0b4b85;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* About */
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 850px;
+            margin: auto;
+            color: #555;
+        }
+
+        /* Admissions */
+        .admissions {
+            background: #e8f2fc;
+        }
+
+        .steps {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .step {
+            background: white;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #0b5ca8;
+        }
+
+        .step strong {
+            color: #092b55;
+        }
+
+        /* Events */
+        .event-date {
+            display: inline-block;
+            background: #092b55;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+
+        /* Contact */
+        .contact {
+            background: #e8f2fc;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 25px auto 0;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background: #092b55;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #0b5ca8;
+        }
+
+        #form-message {
+            margin-top: 12px;
+            color: #176b36;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #061d39;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer a {
+            color: #ffca28;
+            text-decoration: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .banner h1 {
+                font-size: 36px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 650px) {
+            header {
+                flex-wrap: wrap;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding-top: 15px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                font-size: 15px;
+                padding: 7px 0;
+            }
+
+            .banner {
+                min-height: 380px;
+                padding: 55px 7%;
+            }
+
+            .banner h1 {
+                font-size: 31px;
+            }
+
+            .banner p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">NRI <span>COLLEGE</span></div>
+
+        <button class="menu-btn" onclick="toggleMenu()"
+                aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav id="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#departments">Departments</a>
+            <a href="#courses">Courses</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#admissions">Admissions</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#events">Events</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h1>Welcome to NRI College</h1>
+            <p>
+                Learn, Innovate, and Build Your Future.
+                Discover quality education, modern facilities,
+                and opportunities to achieve your dreams.
+            </p>
+            <a href="#admissions" class="btn">Explore Admissions</a>
+        </div>
+    </section>
+
+    <!-- About Institution -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Our Institution</h2>
+        <p class="section-intro">Knowledge today, leadership tomorrow.</p>
+
+        <p class="about-text">
+            Our college website provides information about academic
+            departments, courses, faculty, admissions, campus facilities,
+            and student activities. We aim to support students in learning,
+            innovation, teamwork, and career development.
+        </p>
+    </section>
+
+    <!-- Departments -->
+    <section id="departments">
+        <h2 class="section-title">Our Departments</h2>
+        <p class="section-intro">
+            Explore different areas of engineering and technology.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Computer Science</h3>
+                <p>Learn programming, software development, databases,
+                   and computer networks.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>AI & Machine Learning</h3>
+                <p>Explore artificial intelligence, machine learning,
+                   and intelligent applications.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Electrical Engineering</h3>
+                <p>Study electrical systems, circuits, power,
+                   and modern electrical technologies.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📡</div>
+                <h3>Electronics & Communication</h3>
+                <p>Learn electronic circuits, communication systems,
+                   and embedded technologies.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏗️</div>
+                <h3>Civil Engineering</h3>
+                <p>Explore construction, structural design,
+                   and infrastructure development.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Mechanical Engineering</h3>
+                <p>Understand machines, manufacturing,
+                   design, and mechanical systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="about">
+        <h2 class="section-title">Courses Offered</h2>
+        <p class="section-intro">Choose a course that matches your goals.</p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>B.Tech CSE</h3>
+                <p>Computer Science and Engineering</p>
+                <p>Duration: Typically 4 years</p>
+            </div>
+
+            <div class="card">
+                <h3>B.Tech CSE (AI & ML)</h3>
+                <p>Artificial Intelligence and Machine Learning</p>
+                <p>Duration: Typically 4 years</p>
+            </div>
+
+            <div class="card">
+                <h3>B.Tech ECE</h3>
+                <p>Electronics and Communication Engineering</p>
+                <p>Duration: Typically 4 years</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Profiles -->
+    <section id="faculty">
+        <h2 class="section-title">Our Faculty</h2>
+        <p class="section-intro">
+            Meet the educators who guide student learning.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">👨‍🏫</div>
+                <h3>Dr. Faculty Member 1</h3>
+                <p><strong>Department:</strong> Computer Science</p>
+                <p><strong>Specialization:</strong> Programming and Software</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👩‍🏫</div>
+                <h3>Faculty Member 2</h3>
+                <p><strong>Department:</strong> AI & ML</p>
+                <p><strong>Specialization:</strong> Artificial Intelligence</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👨‍🏫</div>
+                <h3>Faculty Member 3</h3>
+                <p><strong>Department:</strong> Electronics</p>
+                <p><strong>Specialization:</strong> Communication Systems</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions -->
+    <section class="admissions" id="admissions">
+        <h2 class="section-title">Admissions Procedure</h2>
+        <p class="section-intro">
+            Follow these general steps to apply.
+        </p>
+
+        <div class="steps">
+            <div class="step">
+                <strong>Step 1: Choose a Course</strong>
+                <p>Review the available courses and eligibility requirements.</p>
+            </div>
+
+            <div class="step">
+                <strong>Step 2: Check Eligibility</strong>
+                <p>Check academic qualifications and applicable entrance
+                   examination requirements.</p>
+            </div>
+
+            <div class="step">
+                <strong>Step 3: Submit Application</strong>
+                <p>Complete the application and provide the required documents.</p>
+            </div>
+
+            <div class="step">
+                <strong>Step 4: Counselling and Verification</strong>
+                <p>Follow the official admission process and verify documents.</p>
+            </div>
+
+            <div class="step">
+                <strong>Step 5: Confirm Admission</strong>
+                <p>Complete the official fee and enrollment formalities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Facilities -->
+    <section id="facilities">
+        <h2 class="section-title">Campus Facilities</h2>
+        <p class="section-intro">
+            Facilities that support learning and student life.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Library</h3>
+                <p>Learning resources, books, and study materials.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧪</div>
+                <h3>Laboratories</h3>
+                <p>Practical learning and technical experiments.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏠</div>
+                <h3>Hostel</h3>
+                <p>Residential facilities, subject to campus availability.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏏</div>
+                <h3>Sports</h3>
+                <p>Opportunities for sports, fitness, and teamwork.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚌</div>
+                <h3>Transportation</h3>
+                <p>Transport information and routes, where available.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📶</div>
+                <h3>Digital Learning</h3>
+                <p>Technology-enabled learning and online resources.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section class="about" id="events">
+        <h2 class="section-title">College Events</h2>
+        <p class="section-intro">
+            Participate, collaborate, and showcase your talents.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <span class="event-date">Annual Event</span>
+                <h3>Technical Fest</h3>
+                <p>Technical presentations, coding activities,
+                   and project demonstrations.</p>
+            </div>
+
+            <div class="card">
+                <span class="event-date">Student Activities</span>
+                <h3>Cultural Fest</h3>
+                <p>Music, dance, performances, and creative activities.</p>
+            </div>
+
+            <div class="card">
+                <span class="event-date">Career Development</span>
+                <h3>Workshops</h3>
+                <p>Skill-building sessions, seminars,
+                   and career guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-intro">
+            Contact the college for further information.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">📍</div>
+                <h3>Address</h3>
+                <p>Enter the official college address here.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📞</div>
+                <h3>Phone</h3>
+                <p>Enter the official contact number here.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✉️</div>
+                <h3>Email</h3>
+                <p>Enter the official college email here.</p>
+            </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <h3>Send an Enquiry</h3>
+
+            <input type="text" id="name" placeholder="Your Name" required>
+
+            <input type="email" id="email" placeholder="Your Email" required>
+
+            <textarea id="message" placeholder="Your Message"
+                      required></textarea>
+
+            <button type="submit">Submit Enquiry</button>
+
+            <p id="form-message" role="status"></p>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> NRI College Website Project.</p>
+        <p>Designed using HTML, CSS and JavaScript.</p>
+        <p><a href="#home">Back to Top ↑</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById("navbar");
+            const menuButton = document.querySelector(".menu-btn");
+
+            navbar.classList.toggle("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                navbar.classList.contains("active")
+            );
+        }
+
+        // Close mobile navigation after clicking a link
+        document.querySelectorAll("#navbar a").forEach(function(link) {
+            link.addEventListener("click", function() {
+                document.getElementById("navbar").classList.remove("active");
+                document.querySelector(".menu-btn")
+                    .setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // Display the current year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Demo form: validates fields but does not send data to a server
+        document.getElementById("contactForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                document.getElementById("form-message").textContent =
+                    "Thank you! This is a demo form. Your enquiry has not been sent.";
+
+                this.reset();
+            });
+    </script>
+
+</body>
+</html>
